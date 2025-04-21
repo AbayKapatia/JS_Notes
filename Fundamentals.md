@@ -152,4 +152,86 @@ alert('Done!');`
 `  default:`
 `    alert( "I don't know such values" );`
 `}`
+## Function
+1. Function Defination:
+	- `function name(parameter1, parameter2, ... parameterN) {
+ // body
+}`
+	- Default Parameters: 
+ `function showMessage(from, text = "no text given") {
+  alert( from + ": " + text );
+}`
+	- Return Value in function,. Function without return have undefined as its returned value.
+	`function sum(a, b) {
+  return a + b;
+}`
 
+|Function Declarartion|Function Expression  |
+|--|--|
+| `function sayHi() {alert( "Hello" );}` |  `let sayHi = function() {alert( "Hello" );};`    |
+|A Function Declaration can be called earlier than it is defined.|A Function Expression is created when the execution reaches it and is usable only from that moment.|
+|`let age = prompt("What is your age?", 18); if (age < 18) {  function welcome() {    alert("Hello!");  } } else {  function welcome() {    alert("Greetings!");  } }// ...use it later welcome(); // Error: welcome is not defined`|`let age = prompt("What is your age?", 18);let welcome; if (age < 18) { welcome = function() {    alert("Hello!"); };} else {  welcome = function() {    alert("Greetings!");};}welcome(); // ok now`
+|
+### NOTE: 
+`function sayHi() {`
+ ` alert( "Hello" );
+}`
+`alert( sayHi ); // shows the function code
+`
+Please note that the last line does not run the function, because there are no parentheses after  `sayHi`. There are programming languages where any mention of a function name causes its execution, but JavaScript is not like that.
+In JavaScript, a function is a value, so we can deal with it as a value. The code above shows its string representation, which is the source code.
+Surely, a function is a special value, in the sense that we can call it like  `sayHi()`.
+But it’s still a value. So we can work with it like with other kinds of values.
+
+### Condition declaration
+`let age = prompt("What is your age?", 18);`
+`let welcome = (age < 18) ?`
+ ` function() { alert("Hello!"); } :`
+`  function() { alert("Greetings!"); };`
+`welcome(); // ok now`
+
+|Functional Expression|Arrow Function|
+|--|--|
+|`let func = function(arg1, arg2, ..., argN) {return expression;};`|`let func = (arg1, arg2, ..., argN) => expression;`|
+|||
+
+Some Examples:
+1. Arrow Function with no parameters: 
+`let sayHi = () => alert("Hello!");
+sayHi();`
+2. Arrow Function with one parameter:
+`let double = n => n * 2;
+// roughly the same as: let double = function(n) { return n * 2 }
+alert( double(3) ); // 6`
+3. Conditional Arrow Function:
+`let welcome = (age < 18) ?
+  () => alert('Hello!') :
+  () => alert("Greetings!");
+welcome();`
+
+### Multiple Arrow Function:
+We need to have {} brackets and a return statement:
+`let sum = (a, b) => {  // the curly brace opens a multiline function
+  let result = a + b;
+  return result; // if we use curly braces, then we need an explicit "return"
+};`
+
+
+#### Excercise :
+Convert this code to Arrow Function:
+`function ask(question, yes, no) {
+  if (confirm(question)) yes();
+  else no();
+}
+ask(
+  "Do you agree?",
+  function() { alert("You agreed."); },
+  function() { alert("You canceled the execution."); }
+);`
+Converted Function:
+`let ask = (question, yes, no) => confirm(question) ? yes() : no();
+ask(
+'Do you agree?',
+() => alert('You agreed'),
+() => alert('You interrupted execution'),
+);`
