@@ -49,7 +49,7 @@
 `alert("text" in user); //true, user.text exist even though it is declared as undefined`
 6. Ordered like an object:
 	- “ordered in a special fashion” integer properties are sorted, others appear in creation order.
-	- As an example, let’s consider an object with the phone codes:
+	- As an example, let’s consider an object with the phone codes: <br>
 	`let codes = {
   "49": "Germany",
   "41": "Switzerland",
@@ -60,7 +60,7 @@
 `for (let code in codes) {
   alert(code); // 1, 41, 44, 49
 }`
-	- Adding a plus "+" sign before each code is enough
+	- Adding a plus "+" sign before each code is enough <br>
 	`let codes = {
   "+49": "Germany",
   "+41": "Switzerland",
