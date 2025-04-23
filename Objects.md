@@ -42,7 +42,7 @@
 	- Reading a non-existing property just returns `undefined` 
 	- `let user = {};`<br>
 `alert( user.noSuchProperty === undefined ); // true means "no such property"`
-	- There’s also a special operator `"in"` for that.
+	- There’s also a special operator `"in"` for that.<br>
 	`let user = { name: "John", age: 30, text:undefined };` <br>
 `alert( "age" in user ); // true, user.age exists` <br>
 `alert( "blabla" in user ); // false, user.blabla doesn't exist` <br>
